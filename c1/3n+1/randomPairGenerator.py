@@ -12,14 +12,8 @@ def generate_pairs(min, max, num_pairs):
         pairs.append(pair)
 
     # write to file
-    i = 1
     size = 'small' if num_pairs < 250 else 'big'
-    filename = size + str(i) + ".txt"
-    for root, dirs, files in os.walk("input/"): 
-        for file in files:
-            if file == filename:
-                i += 1
-    filename = "input/" + size + str(i) + ".txt"
+    filename = "input/" + size + "_n" + str(num_pairs) + "_min" + str(min) + "_max" + str(max) + ".txt"
     print("written to %s" % filename)
     with open(filename, 'w') as f:
         f.write("num pairs: %d, min val: %d, max val: %d\n" % (num_pairs, min, max))

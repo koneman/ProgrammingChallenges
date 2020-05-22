@@ -1,3 +1,4 @@
+num pairs: 4, min val: 1, max val: 1000
 1 10
 100 200
 201 210
