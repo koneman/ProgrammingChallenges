@@ -22,7 +22,7 @@ def generate_pairs(min, max, num_pairs):
     filename = "input/" + size + str(i) + ".txt"
     print("written to %s" % filename)
     with open(filename, 'w') as f:
-        f.write("num pairs: %d, min val: %d, max val: %d" % (num_pairs, min, max))
+        f.write("num pairs: %d, min val: %d, max val: %d\n" % (num_pairs, min, max))
         for (i, j) in pairs:
             f.write("%d %d\n" % (i, j))
 
