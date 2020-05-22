@@ -1,4 +1,5 @@
 #include <iostream>
+#include <unordered_map>
 
 using namespace std;
 
@@ -9,13 +10,17 @@ int compute(int n, int cycleLength) {
     return compute(n, cycleLength+1);
 }
 
-// brute force
 // find max cycle length over all ints b/w i and j
-int maxCycleLength(int i, int j){
+int maxCycleLength(int i, int j, unordered_map<int, int>& memo){
     int max = 0;
     for(int k = i; k <= j; k++){
-        int k_ = compute(k, 1);
-        if(k_ > max) max = k_;
+        if(memo.find(k) == memo.end()){
+            int k_ = compute(k, 1);
+            if(k_ > max) max = k_;
+            memo[k] = k_;
+        }else{
+            if(memo[k] > max) max = memo[k];
+        }
     }
     return max;
 }
@@ -25,8 +30,10 @@ int main () {
     cin.ignore(256, '\n'); // ignore first line
     
     int i, j;
+    unordered_map<int, int> memo; // save cycle length for a number
+    // unordered_map<pair<int, int>, int> memo; // save max over an interval
     while(cin >> i >> j){
-        cout << i << " " << j << " " << maxCycleLength(i, j) << "\n";
+        cout << i << " " << j << " " << maxCycleLength(i, j, memo) << "\n";
     }
     return 0;
 }
