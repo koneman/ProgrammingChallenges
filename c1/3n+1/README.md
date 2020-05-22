@@ -13,9 +13,11 @@ For example, the following sequence of numbers will be generated for n = 22:
 
 It is conjectured (but not yet proven) that this algorithm will terminate at n =
 1 for every integer n. Still, the conjecture holds for all integers up to at
-least 1, 000, 000. For an input n, the cycle-length of n is the number of
+least 1,000,000. For an input n, the cycle-length of n is the number of
 numbers generated up to and including the 1. In the example above, the cycle
-length of 22 is 16. Given any two numbers i and j, you are to determine the
+length of 22 is 16.
+
+Given any two numbers i and j, you are to determine the
 maximum cycle length over all numbers between i and j, including both endpoints.
 
 ## Input
@@ -46,3 +48,33 @@ numbers on one line and with one line of output for each line of input.
 201 210 89
 900 1000 174
 ```
+
+### Running
+
+1. Generate random input:
+
+    ```python
+    # generate a list of 1000 pairs with min val 1 and max val 999999
+    python randomPairGenerator.py -h
+    python randomPairGenerator.py -m 1 -x 999999 -n 1000
+    python randomPairGenerator.py -min 1 -max 999999 -num 1000
+    ```
+
+2. Run:
+
+    `make` or `make release`
+    `./a.out`
+    `./a.out < [input]`
+
+### Notes
+
+Brute force is easy:
+    -> iterate thru i...j and find max cycle length
+    -> as expected runs slow on large i, j ranges and large input
+
+Faster:
+    -> since we're basically finding the max a bunch of times over potentially repeated ranges,
+        memoization seems like a good way to optimize and save repeated computation
+    -> ideas:
+        -> do straight up DP, memoize as we go
+        -> could also precompute max over intervals based on input
