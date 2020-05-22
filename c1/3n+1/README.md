@@ -69,12 +69,14 @@ numbers on one line and with one line of output for each line of input.
 ### Notes
 
 Brute force is easy:
-    -> iterate thru i...j and find max cycle length
-    -> as expected runs slow on large i, j ranges and large input
+
+- iterate thru i...j and find max cycle length
+- as expected runs slow on large i, j ranges and large input
 
 Faster:
-    -> since we're basically finding the max a bunch of times over potentially repeated ranges,
-        memoization seems like a good way to optimize and save repeated computation
-    -> ideas:
-        -> do straight up DP, memoize as we go
-        -> could also precompute max over intervals based on input
+
+- since we're basically finding the max a bunch of times over potentially repeated ranges,
+    memoization seems like a good way to optimize and save repeated computation
+- ideas:
+  - do straight up DP, memoize as we go
+  - could also precompute max over intervals based on input
