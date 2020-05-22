@@ -80,3 +80,120 @@ Faster:
 - ideas:
   - do straight up DP, memoize as we go
   - could also precompute max over intervals based on input
+
+### Runtime
+
+<table>
+<tr>
+<th>
+    Input
+</th>
+<th>
+    Brute Force
+</th>
+<th>
+    DP
+</th>
+</tr>
+<tr>
+<td>
+
+    sample.txt
+
+</td>
+<td>
+
+```text
+real    0m0.037s
+user    0m0.001s
+sys     0m0.001s
+```
+
+</td>
+<td>
+
+```text
+real    0m0.070s
+user    0m0.001s
+sys     0m0.002s
+```
+
+</td>
+</tr>
+<tr>
+<td>
+
+    small_n100_min1_max99999.txt
+
+</td>
+<td>
+
+```text
+real    0m0.951s
+user    0m0.943s
+sys     0m0.005s
+```
+
+</td>
+<td>
+
+```text
+real    0m0.071s
+user    0m0.065s
+sys     0m0.004s
+```
+
+</td>
+</tr>
+<tr>
+<td>
+
+    small_n200_min1_max100000.txt
+
+</td>
+<td>
+
+```text
+real    0m1.667s
+user    0m1.613s
+sys     0m0.009s
+```
+
+</td>
+<td>
+
+```text
+real    0m0.111s
+user    0m0.069s
+sys     0m0.004s
+```
+
+</td>
+</tr>
+<tr>
+<td>
+
+    big_n1000_min1_max99999.txt
+
+</td>
+<td>
+
+```text
+real    0m8.411s
+user    0m8.196s
+sys     0m0.040s
+```
+
+</td>
+<td>
+
+```text
+real    0m0.423s
+user    0m0.279s
+sys     0m0.008s
+```
+
+</td>
+</tr>
+
+</table>
