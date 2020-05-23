@@ -35,15 +35,16 @@ of each two consecutive cases are separated by a blank line.
 
 ```text
 1
+
 3
 John Doe
 Jane Smith
 Jane Austen
-123
-213
-231
-123
-312
+1 2 3
+2 1 3
+2 3 1
+1 2 3
+3 1 2
 ```
 
 ## Sample Output
@@ -51,3 +52,15 @@ Jane Austen
 ```text
 John Doe
 ```
+
+## Notes
+
+- straightforward -> count first choice
+    -> look for candidate w/ greater than 50% of vote
+    -> if none, eliminate those tied with lowest number of votes and repeat
+
+### Running
+
+`make && ./a.out`
+
+`./a.out < [input]`
