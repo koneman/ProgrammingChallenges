@@ -3,12 +3,18 @@
 
 using namespace std;
 
-int compute(int n, int cycleLength, unordered_map<int, int>& memo) {
-    if(n == 1) return cycleLength;
+int compute(int start, int n, int cycleLength, unordered_map<int, int>& memo) {
+    if(n == 1){
+        memo[start] = cycleLength;
+        return cycleLength;
+    }
     if(n % 2 == 0) n /= 2;
     else n = 3*n + 1;
-    if(memo.find(n) != memo.end()) return cycleLength + memo[n];
-    return compute(n, cycleLength+1, memo);
+    if(memo.find(n) != memo.end()){
+        memo[start] = cycleLength + memo[n];
+        return cycleLength + memo[n];
+    }
+    return compute(start, n, cycleLength+1, memo);
 }
 
 // find max cycle length over all ints b/w i and j
@@ -16,9 +22,8 @@ int maxCycleLength(int i, int j, unordered_map<int, int>& memo){
     int max = 0;
     for(int k = i; k <= j; k++){
         if(memo.find(k) == memo.end()){
-            int k_ = compute(k, 1, memo);
+            int k_ = compute(k, k, 1, memo);
             if(k_ > max) max = k_;
-            memo[k] = k_;
         }else{
             if(memo[k] > max) max = memo[k];
         }
