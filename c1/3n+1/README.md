@@ -54,10 +54,10 @@ numbers on one line and with one line of output for each line of input.
 1. Generate random input:
 
     ```python
-    # generate a list of 1000 pairs with min val 1 and max val 999999
+    # generate a list of 1000 pairs with min val 1 and max val 99999
     python randomPairGenerator.py -h
-    python randomPairGenerator.py -m 1 -x 999999 -n 1000
-    python randomPairGenerator.py -min 1 -max 999999 -num 1000
+    python randomPairGenerator.py -m 1 -x 99999 -n 1000
+    python randomPairGenerator.py -min 1 -max 99999 -num 1000
     ```
 
 2. Run:

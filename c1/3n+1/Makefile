@@ -5,7 +5,6 @@ TEST_CMD = $(sh runTests.sh)
 .PHONY: debug
 .PHONY: clean
 .PHONY: test
-.PHONY: distrib    
 
 CXX = g++
 CXXFLAGS = -std=c++11 -Wconversion -Wall -Werror -Wextra -pedantic 
