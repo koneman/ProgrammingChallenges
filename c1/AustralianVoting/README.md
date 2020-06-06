@@ -55,9 +55,13 @@ John Doe
 
 ## Notes
 
+- FINISH this later...
 - straightforward -> count first choice
-    -> look for candidate w/ greater than 50% of vote
-    -> if none, eliminate those tied with lowest number of votes and repeat
+  -> look for candidate w/ greater than 50% of vote
+  -> if none, eliminate those tied with lowest number of votes and repeat
+  -> if willing to tradeoff on mem -> grab all votes upfront -> do straightforward
+  -> processing column by column -> bad cache performance
+  -> rotate vote array
 
 ### Running
 
